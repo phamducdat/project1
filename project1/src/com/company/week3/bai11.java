@@ -6,23 +6,21 @@ import java.util.HashMap;
 public class bai11 {
 
 
-    public static int LICS(int[] arr)
-    {
-        HashMap<Integer,Integer> hash=new HashMap<Integer,Integer>();
-        for (int j : arr) {
-            if (hash.containsKey(j - 1)) {
-                System.out.println("j = " + j);
-                hash.put(j, hash.get(j - 1) + 1);
-                hash.remove(j - 1);
-            } else
-                hash.put(j, 1);
+    public static void main(String[] args) {
+        System.out.println("Pham Duc Dat - 20183704");
+        int arr[] = {32, 5, 4, 64, 2,56,64,24,3, 4, 4, 23, 544, 436};
+        int counter = 1;
+        int start = arr[0];
+        int end = arr[arr.length - 1];
+
+        for (int i = 1; i < arr.length-1; i++) {
+            if (arr[i] == arr[i + 1]) {
+                counter++;
+                start = arr[i];
+            }
         }
-        System.out.println(hash);
-        return Collections.max(hash.values());
-    }
-    public static void main(String args[])
-    {
-        int[] arr ={3, 10, 3, 11, 4, 5, 6, 7, 8, 12};
-        System.out.println(LICS(arr));
+
+        System.out.println("Day co so phan tu la: " + counter);
+        System.out.println("Bat dau cua day: " + start);
     }
 }
